@@ -1,0 +1,65 @@
+img {
+    width: 250px;
+    height: 250px;
+    border: 5px solid navy;
+    display: flex;
+    justify-content: center; 
+}
+
+    body{
+        background-color: cornsilk;
+        color:black;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+    }
+
+div ul {
+    display: flex;
+    flex-direction: column; /* Alteração para exibir os links na vertical */
+    justify-content: space-between;
+    list-style-type: none;
+    align-items: left;
+    padding: 12px;
+    }
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    align-items: center;
+    padding: 12px; }
+
+    nav a {
+        font-size: 20px;
+    }
+    
+    nav a:hover {
+        color: grey;
+    }
+
+    a {
+        color: teal;
+        text-decoration: none;}
+
+
+        p {
+            line-height: 1; 
+        }
+
+
+        .conteudo {
+            display: flex;
+            align-items: center; 
+        }
+        
+
+        
+        .texto {
+            flex: 1; /* Faz com que o texto ocupe o espaço disponível */
+            margin-left: 20px; /* Adiciona uma margem à esquerda para separar a foto do texto */
+        }
+
+        header {
+            font-size:60px;
+            text-align: center;
+        }

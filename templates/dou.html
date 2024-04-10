@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca DOU</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/dou.css') }}">
+</head>
+<body>
+    <header>Busca DOU</header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/sobremim">Sobre Mim</a></li>
+            <li><a href="/portfolio">Portfólio</a></li>
+            <li><a href="/contato">Contato</a></li>
+        </ul>
+    </nav>
+    <div>
+    <h1>Consulta ao Diário Oficial da União</h1>
+    <p> As matérias encontradas no dia <strong>{{ date }}</strong> foram:</p>
+    {% for palavra, lista_resultados in resultados_por_palavra.items() %}
+        <h2>{{ palavra }}</h2>
+        {% if lista_resultados %}
+            <ul>
+            {% for resultado in lista_resultados %}
+                <li><a href='{{ resultado["href"] }}'>{{ resultado["title"] }}</a></li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>Nenhum resultado encontrado para esta palavra-chave.</p>
+        {% endif %}
+    {% endfor %}
+    </div>
+</body>
+</html>
