@@ -1,5 +1,5 @@
 Flask>3
 gunicorn
 requests
-bs4
-dotenv
+beautifulsoup4
+python-dotenv
