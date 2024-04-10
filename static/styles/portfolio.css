@@ -27,8 +27,8 @@ a {
     text-decoration: none;}
 
     section ul{
-        font-weight: bold;
-        line-height: 0;
+        font-weight: normal;
+        line-height: 1;
     
     }
 
