@@ -67,27 +67,33 @@ if __name__ == '__main__':
 
 @app.route('/enviaemail', methods=['POST'])
 def envia_email():
-  smtp_server = "smtp-relay.brevo.com"
-  port = 587
-  email = "heloisav.x@gmail.com"  # MUDE AQUI
-  password = os.getenv('CHAVE_EMAIL')
+    smtp_server = "smtp-relay.brevo.com"
+    port = 587
+    email = "heloisav.x@gmail.com"  # MUDE AQUI
+    password = os.getenv('CHAVE_EMAIL')
 
-  remetente = "heloisav.x@gmail.com"  # MUDE AQUI
-  destinatario = request.form['email']
-  titulo = request.form['titulo']
-  corpo = request.form['corpo']
+    remetente = "heloisav.x@gmail.com"  # MUDE AQUI
+    destinatario = request.form['email']
+    titulo = request.form['titulo']
+    corpo = request.form['corpo']
 
-  server = smtplib.SMTP(smtp_server, port)  # Inicia a conexão com o servidor
-  server.starttls()  # Altera a comunicação para utilizar criptografia
-  server.login(email, password)  # Autentica
+    server = smtplib.SMTP(smtp_server, port)  # Inicia a conexão com o servidor
+    server.starttls()  # Altera a comunicação para utilizar criptografia
+    server.login(email, password)  # Autentica
 
-  # Preparando o objeto da mensagem ("documento" do email):
-  mensagem = MIMEMultipart()
-  mensagem["From"] = remetente
-  mensagem["To"] = ",".join(destinatario)
-  mensagem["Subject"] = titulo
-  mensagem.attach(corpo)
+    # Preparando o objeto da mensagem ("documento" do email):
+    mensagem = MIMEMultipart()
+    mensagem["From"] = remetente
+    mensagem["To"] = destinatario
+    mensagem["Subject"] = titulo
 
-  # Enviando o email pela conexão já estabelecida:
-  server.sendmail(remetente, destinatario, mensagem.as_string())
-  return 'E-mail enviado'
+    # Adicionando o corpo do e-mail como parte da mensagem
+    mensagem.attach(MIMEText(corpo, 'plain'))
+
+    # Enviando o email pela conexão já estabelecida:
+    server.sendmail(remetente, destinatario, mensagem.as_string())
+    server.quit()  # Encerrar a conexão com o servidor SMTP
+    return 'E-mail enviado'
+
+if __name__ == "__main__":
+    app.run(debug=True)
