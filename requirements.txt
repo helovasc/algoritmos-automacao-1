@@ -1,0 +1,5 @@
+Flask>3
+gunicorn
+requests
+bs4
+dotenv
