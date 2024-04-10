@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca DOU</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/dou.css') }}">
+</head>
+<body>
+    <header>Busca DOU</header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/sobremim">Sobre Mim</a></li>
+            <li><a href="/portfolio">Portfólio</a></li>
+            <li><a href="/contato">Contato</a></li>
+        </ul>
+    </nav>
+    <div>
+    <h1>Consulta ao Diário Oficial da União</h1>
+    <p> O Diário Oficial da União não foi publicado no dia <strong>{{ data_formatada }}</strong>. Volte novamente de segunda a sexta-feira. </p>
+    </div>
+</body>
+</html>
