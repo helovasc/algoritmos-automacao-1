@@ -72,8 +72,8 @@ def envia_email():
     email = "heloisav.x@gmail.com"  # MUDE AQUI
     password = os.getenv('CHAVE_EMAIL')
 
-    remetente = "heloisav.x@gmail.com"  # MUDE AQUI
-    destinatario = request.form['email']
+    remetente = request.form['email']
+    destinatario = ["heloisav.x@gmail.com", 'alvarojusten@gmail.com']
     titulo = request.form['titulo']
     corpo = request.form['corpo']
 
