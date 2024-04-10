@@ -84,7 +84,7 @@ def envia_email():
     # Preparando o objeto da mensagem ("documento" do email):
     mensagem = MIMEMultipart()
     mensagem["From"] = remetente
-    mensagem["To"] = destinatario
+    mensagem["To"] = ", ".join(destinatario)
     mensagem["Subject"] = titulo
 
     # Adicionando o corpo do e-mail como parte da mensagem
